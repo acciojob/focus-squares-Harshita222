@@ -1,4 +1,4 @@
-ocument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const squares = document.getElementsByClassName('square');
 
     // Add event listener for 'mouseover' event to each square
