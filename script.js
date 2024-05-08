@@ -1,32 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const squares = document.querySelectorAll('.square');
+    const squares = document.getElementsByClassName('square');
 
-    // Function to change the color of non-hovered squares to Coffee
-    function changeColorToCoffee(square) {
-        squares.forEach(s => {
-            if (s !== square) {
+    // Add event listener for 'mouseover' event to each square
+    Array.from(squares).forEach(square => {
+        square.addEventListener('mouseover', function() {
+            // Change the color of all squares to Coffee
+            Array.from(squares).forEach(s => {
                 s.style.backgroundColor = '#6F4E37'; // Coffee
-            }
+            });
         });
-    }
 
-    // Function to reset the color of non-hovered squares to Lavender
-    function resetColorToLavender(square) {
-        squares.forEach(s => {
-            if (s !== square) {
+        // Add event listener for 'mouseout' event to each square
+        square.addEventListener('mouseout', function() {
+            // Change the color of all squares back to Lavender
+            Array.from(squares).forEach(s => {
                 s.style.backgroundColor = '#E6E6FA'; // Lavender
-            }
-        });
-    }
-
-    // Add event listener to each square
-    squares.forEach(square => {
-        square.addEventListener('mouseenter', function() {
-            changeColorToCoffee(square);
-        });
-
-        square.addEventListener('mouseleave', function() {
-            resetColorToLavender(square);
+            });
         });
     });
 });
